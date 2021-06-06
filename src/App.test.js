@@ -1,12 +1,20 @@
-import { render, screen } from "@testing-library/react";
+import React from "react";
+import { shallow } from "enzyme";
 import App from "./App";
+import { BucketContainer } from "./Bucket.styles";
 
-test('Renders "Kanban Board" Text', () => {
-  render(<App />);
-  const heading = screen.getByText(/Kanban Board/i);
-  expect(heading).toBeInTheDocument();
+const wrapper = shallow(<App />);
+
+describe("Renders Kanban Board heading", function () {
+  it("should render a H1 Tag with Kanban Board", function () {
+    expect(wrapper.find("h1").text()).toEqual("Kanban Board");
+  });
 });
 
-test("Renders three buckets", () => {
-  render(<App />);
+describe("Renders Three Buckets", () => {
+  it("should render three buckets", () => {
+    expect(wrapper.find(BucketContainer)).toHaveLength(3);
+  });
+
+  it("renders todo bucket with two entries", () => {});
 });

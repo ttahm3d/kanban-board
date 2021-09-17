@@ -15,3 +15,5 @@ Simple Kanban board with three buckets (groups)
 
 - Different colors for different buckets
 - Add new items to the buckets
+
+Commit made from testing pull request branch
